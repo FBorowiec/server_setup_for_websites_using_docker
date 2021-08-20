@@ -2,8 +2,6 @@
 
 cd
 
-docker login
-
 mkdir -p grafana/provisioning # data sources and dashboards
 mkdir nginx
 
