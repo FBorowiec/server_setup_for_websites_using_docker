@@ -28,6 +28,11 @@ The server setup is entirely done using Docker with `letsencrypt`, `nginx`, `gra
 
 ## Docker solution
 
+* `git clone https://github.com/FBorowiec/server_setup_for_websites_using_docker.git`
+* `cd server_setup_for_websites_using_docker`
+* `./server_setup.sh`
+* [Optional]: `git config credentials.helper 'store'
+
 Once you have launched all containers using `docker-compose up -d` you need to enter the `nginx` container and setup `SSL` inside of it:
 
 *Note*: this will only work if you pointed your domain name to this IP address.
