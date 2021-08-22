@@ -28,14 +28,13 @@ The server setup is entirely done using Docker with `letsencrypt`, `nginx`, `gra
 
 ## Docker solution
 
-* Install docker on your server
-
 * `git clone https://github.com/FBorowiec/server_setup_for_websites_using_docker.git`
 * `cd server_setup_for_websites_using_docker`
-* `./server_setup.sh`
-* [Optional]: `git config credentials.helper 'store'
-* [Optional]: `git config --global user.email "your@email.com"
-* [Optional]: `git config --global user.name "Your Name"
+* Install docker on your server with `./install_docker.sh`
+* Perform server setup: `./server_setup.sh`
+* [Optional]: `git config credentials.helper 'store'`
+* [Optional]: `git config --global user.email "your@email.com"`
+* [Optional]: `git config --global user.name "Your Name"`
 
 Once you have launched all containers using `docker-compose up -d` you need to enter the `nginx` container and setup `SSL` inside of it:
 
@@ -46,6 +45,14 @@ Once this is done you can check the proper configuration using a DNS lookup site
 ```bash
 docker exec -it nginx bash  # bash into the container
 certbot --nginx -d domainexample.com -d www.domainexample.com  # setup ssl
+```
+
+### Installing certificates
+
+With a file called `nginx.conf` under the directory `config`:                                                                                                           │
+                                                                                                                                                                        │
+```bash                                                                                                                                                                 │
+docker run --rm -t -a stdout --name my-nginx -v $PWD/config/:/etc/nginx/:ro nginx:latest nginx -c /etc/nginx/nginx.conf -t                                              │
 ```
 
 ## Docker-less solution
@@ -73,7 +80,7 @@ server {
 }
 ```
 
-* `ln -s /etc/nginx/sites-available/domainexample /etc/nginx/sites-enables/`
+* `ln -s /etc/nginx/sites-available/domainexample /etc/nginx/sites-enables/default`
 * `mkdir /var/www/domainexample`
 
 Add your website inside `/var/www/domainexample`:

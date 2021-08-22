@@ -10,3 +10,6 @@ docker volume create --name=grafana-storage
 docker volume create --name=letsencrypt
 
 cd -
+
+cp nginx/* ~/nginx/
+cp docker-compose.yml ~/docker-compose.yml

@@ -12,7 +12,7 @@ RUN apt update -y \
     && apt install python3-certbot-nginx -y \
     && apt clean all && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN certbot --nginx -d domainexample.com -d www.domainexample.com
+# RUN certbot --nginx -d domainexample.com -d www.domainexample.com
 
 EXPOSE 80
 EXPOSE 3000
