@@ -13,7 +13,6 @@ RUN apt update -y \
     && apt clean all && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 80
-EXPOSE 3000
 EXPOSE 443
 
 STOPSIGNAL SIGTERM
