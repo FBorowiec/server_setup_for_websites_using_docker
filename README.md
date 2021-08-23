@@ -49,6 +49,9 @@ certbot --nginx -d domainexample.com -d www.domainexample.com  # setup ssl
 
 ### Installing certificates
 
+`docker exec -it nginx /bin/bash`
+`certbot --nginx`
+
 With a file called `nginx.conf` under the directory `config`:                                                                                                           │
                                                                                                                                                                         │
 ```bash                                                                                                                                                                 │
