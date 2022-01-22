@@ -60,7 +60,7 @@ docker run --rm -t -a stdout --name my-nginx -v $PWD/config/:/etc/nginx/:ro ngin
 
 ## Docker-less solution
 
-* `apt install nginx certbot python-certbot-nginx`
+* `apt install -y nginx certbot python3-certbot-nginx`
 * `cp /etc/nginx/sites-available/default /etc/nginx/sites-available/domainexample`
 * `vim /etc/nginx/sites-available/domainexample`
 
@@ -102,3 +102,7 @@ Add your website inside `/var/www/domainexample`:
 
 * `certbot renew`
 * Add `1 1 1 * * certbot renew` to crontab: `crontab -e`.
+
+## Docker installation
+
+[Install docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
